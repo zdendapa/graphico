@@ -24,7 +24,7 @@ function notificationSet60()
         _60_seconds_from_now = new Date(now + 60*1000);
     window.plugin.notification.local.add({
         id:      0,
-        title:   'Upozorneni' + notifiID.toString(),
+        title:   'Upozorneni',
         message: 'posledni objednavka do 17.00 ',
         repeat:  'minutely',
         date:    _60_seconds_from_now
@@ -38,13 +38,13 @@ function notificationSet()
     //alert(getNextThursday());
     return;
 
-    var now = getNextThursday().getTime();
+    var dateThu = getNextThursday().getTime();
     window.plugin.notification.local.add({
         id:      1,
-        title:   'Upozorneni' + notifiID,
+        title:   'Upozorneni',
         message: 'posledni objednavka do 17.00 ',
         repeat:  'weekly',
-        date:    _60_seconds_from_now
+        date:    dateThu
     });
 
 }
