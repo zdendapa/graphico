@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-image: url(../images/beer_.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-color: #01452C;
+}
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+td {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-size: large;
+}
+th {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-size: xx-large;
+}
+.style2 {
+	font-size: 24px;
+	font-weight: bold;
+}

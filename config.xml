@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+xmlns:gap = "http://phonegap.com/ns/1.0"
+id = "com.phonegap.ferdadomu"
+version = "1.0.1">
+
+<name>Ferda domů</name>
+<description>Objednávka piva Ferdinand až do domu</description>
+<author href="http://www.graphico.cz" email="panzeleny@gmail.com">Tomáš Pejřil</author>
+<item name="android:fitsSystemWindows">true</item>
+<preference name="SplashScreen" value="screen" />
+<preference name="SplashScreenDelay" value="5000" />
+<preference name="orientation" value="default" />
+<preference name="fullscreen" value="false" />
+<preference name="exit-on-suspend" value="false" />
+<preference name="android-installLocation" value="auto" />
+<icon src="res/fdicon.png"/>
+<gap:splash gap:density="ldpi" gap:platform="android" src="res/screen-ldpi-portrait.png" />
+<gap:splash gap:density="ldpi" gap:platform="android" src="res/screen-ldpi-landscape.png" />
+<gap:plugin name="de.appplant.cordova.plugin.local-notification" />
+</widget>
