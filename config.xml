@@ -17,5 +17,6 @@ version = "1.0.1">
 <icon src="res/fdicon.png"/>
 <gap:splash gap:density="ldpi" gap:platform="android" src="res/screen-ldpi-portrait.png" />
 <gap:splash gap:density="ldpi" gap:platform="android" src="res/screen-ldpi-landscape.png" />
+<gap:plugin name="org.apache.cordova.device" />
 <gap:plugin name="de.appplant.cordova.plugin.local-notification" />
 </widget>

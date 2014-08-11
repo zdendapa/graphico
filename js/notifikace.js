@@ -14,6 +14,7 @@ var notifiID = 0;
 
 function notificationSet()
 {
+    alert("notificationSet");
     notifiID ++;
 
     var now = new Date().getTime(),
@@ -30,5 +31,6 @@ function notificationSet()
 
 function notificationNow()
 {
+    alert("notificationNow");
     window.plugin.notification.local.add({ message: 'Great app!' });
 }
