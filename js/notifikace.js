@@ -40,7 +40,7 @@ function notificationSet()
 
     var now = getNextThursday().getTime();
     window.plugin.notification.local.add({
-        id:      0,
+        id:      1,
         title:   'Upozorneni' + notifiID,
         message: 'posledni objednavka do 17.00 ',
         repeat:  'weekly',
