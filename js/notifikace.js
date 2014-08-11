@@ -16,10 +16,9 @@ function notificationSetNow()
     window.plugin.notification.local.add({ message: 'Great app!' });
 }
 
-function notificationSet30()
+function notificationSet60()
 {
-    alert("notificationSet30");
-    notifiID ++;
+    alert("notificationSet60");
 
     var now = new Date().getTime(),
         _60_seconds_from_now = new Date(now + 60*1000);
@@ -36,7 +35,7 @@ function notificationSet30()
 function notificationSet()
 {
     alert("notificationSet");
-    alert(getNextThursday());
+    //alert(getNextThursday());
     return;
 
     var now = getNextThursday().getTime();
@@ -76,6 +75,7 @@ function getNextThursday() {
 
 function notificationClear()
 {
+    alert("notificationClear");
     window.plugin.notification.local.cancelAll();
 }
 
