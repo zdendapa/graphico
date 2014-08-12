@@ -37,7 +37,7 @@ function notificationSet()
     //alert(getNextThursday());
     return;
 
-    var dateThu = getNextThursday();
+    var dateThu = new Date(getNextThursday().getTime());
     window.plugin.notification.local.add({
         id:      1,
         title:   'Upozorneni',
