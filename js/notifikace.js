@@ -60,13 +60,12 @@ function getNextThursday() {
     }
     if(diff == 0)
     {
-        alert(now.getHours());
         if(now.getHours()>=18)
             diff += 7;
         else
             diff = 0;
     }
-    return new Date(now.getFullYear(),now.getMonth(),now.getDate() + diff,17,00);
+    return new Date(now.getFullYear(),now.getMonth(),now.getDate() + diff,18,00);
     //alert("dalsi ut je za:" + diff );
     //alert(now.getDate() + diff);
 }
