@@ -34,8 +34,6 @@ function notificationSet60()
 
 function notificationSet()
 {
-    //alert(getNextThursday());
-    return;
 
     var dateThu = new Date(getNextThursday().getTime());
     window.plugin.notification.local.add({
