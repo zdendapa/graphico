@@ -18,8 +18,6 @@ function notificationSetNow()
 
 function notificationSet60()
 {
-    alert("notificationSet60");
-
     var now = new Date().getTime(),
         _60_seconds_from_now = new Date(now + 60*1000);
     window.plugin.notification.local.add({
@@ -30,15 +28,16 @@ function notificationSet60()
         date:    _60_seconds_from_now
     });
 
+    alert("notificationSet60 nastaveno");
+
 }
 
 function notificationSet()
 {
-    alert("notificationSet");
     //alert(getNextThursday());
     return;
 
-    var dateThu = getNextThursday().getTime();
+    var dateThu = getNextThursday();
     window.plugin.notification.local.add({
         id:      1,
         title:   'Upozorneni',
@@ -46,6 +45,8 @@ function notificationSet()
         repeat:  'weekly',
         date:    dateThu
     });
+
+    alert("notificationSet nastaveno");
 
 }
 
@@ -62,7 +63,7 @@ function getNextThursday() {
     if(diff == 0)
     {
         alert(now.getHours());
-        if(now.getHours()>=17)
+        if(now.getHours()>=18)
             diff += 7;
         else
             diff = 0;
@@ -75,7 +76,7 @@ function getNextThursday() {
 
 function notificationClear()
 {
-    alert("notificationClear");
     window.plugin.notification.local.cancelAll();
+    alert("Notifikace zruseny");
 }
 
