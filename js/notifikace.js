@@ -47,9 +47,10 @@ function notificationSetCustomInput()
     var thours = t.split(":")[0];
     var tmins = t.split(":")[1];
 
-    if(Number(thours) && Number(tmins))
+    if(!isNaN(thours) && !isNaN(tmins))
     {
         var dateThu = new Date(getNextThursday(thours, tmins).getTime());
+        alert(dateThu);
         window.plugin.notification.local.add({
             id:      1,
             title:   'Upozorneni',
@@ -73,7 +74,7 @@ function getNextThursday(hours, mins) {
     if(mins == null) mins = 0;
 
     var now = new Date();
-    var now = new Date('August 30, 2014 3:57:14 pm');
+    //var now = new Date('August 30, 2014 3:57:14 pm');
     var day = now.getDay();
 
     diff = 4 - day;
