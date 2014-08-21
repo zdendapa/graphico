@@ -1,15 +1,3 @@
-// JavaScript Document
-var now = new Date().getTime(),
-    _60_seconds_from_now = new Date(now + 60*1000);
-window.plugin.notification.local.add({
-    id:      1,
-    title:   'Upozorneni',
-    message: 'posledni objednavka do 17.00 ',
-    repeat:  'minutely',
-    date:    _60_seconds_from_now
-});
-
-
 function notificationSetNow()
 {
     alert("notificationNow");
@@ -48,9 +36,35 @@ function notificationSet()
 
 }
 
-function getNextThursday() {
+function notificationSetCustomInput()
+{
+    var t = $("input[name='cas_notifikace']").val();
+    if(t.length==0)
+    {
+        alert("Vložte prosím čas (HH:MM)");
+        return;
+    }
+    var thours = t.split(":")[0];
+    var tmins = t.split(":")[1];
+
+    var dateThu = new Date(getNextThursday(thours, tmins).getTime());
+    window.plugin.notification.local.add({
+        id:      1,
+        title:   'Upozorneni',
+        message: 'posledni objednavka do ' + thours + ":" + tmins,
+        repeat:  'weekly',
+        date:    dateThu
+    });
+
+    alert("Upozornění nastaveno");
+}
+
+function getNextThursday(hours, mins) {
+    if(hours == null) hours = 17;
+    if(mins == null) mins = 0;
+
     var now = new Date();
-    //var now = new Date('August 30, 2014 3:57:14 pm');
+    var now = new Date('August 30, 2014 3:57:14 pm');
     var day = now.getDay();
 
     diff = 2 - day;
@@ -60,20 +74,25 @@ function getNextThursday() {
     }
     if(diff == 0)
     {
-        if(now.getHours()>=18)
+        if(now.getHours()>=hours && now.getMinutes()>= mins)
             diff += 7;
         else
             diff = 0;
     }
-    return new Date(now.getFullYear(),now.getMonth(),now.getDate() + diff,18,00);
-    //alert("dalsi ut je za:" + diff );
-    //alert(now.getDate() + diff);
+    return new Date(now.getFullYear(),now.getMonth(),now.getDate() + diff,hours,mins);
 }
 
 
 function notificationClear()
 {
     window.plugin.notification.local.cancelAll();
-    alert("Notifikace zruseny");
+    alert("Upozornění vypnuty");
 }
 
+function notificationTriggerSet()
+{
+    window.plugin.notification.local.onclick = function (id, state, json) {
+        $("#CollapsiblePanel9 div.CollapsiblePanelContentM").css("display","block");
+        $(window).scrollTop($('#CollapsiblePanel9 div.CollapsiblePanelTabM').offset().top);
+    };
+}

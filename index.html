@@ -17,13 +17,13 @@
 <script src="js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="phonegap.js"></script>
 <script src="js/notifikace.js"></script>
-<script type='application/javascript' src='js/fastclick.js'></script>
-<script type="text/javascript">
+<script type='application/javascript' src='js/fastclick.js'></script><script type="text/javascript">
 window.addEventListener('load', function() {
     FastClick.attach(document.body);
 }, false);
 document.addEventListener('deviceready', function () {
     // window.plugin.notification.local is now available
+    notificationTriggerSet();
 }, false);
 function MM_showHideLayers() { //v9.0
   var i,p,v,obj,args=MM_showHideLayers.arguments;
@@ -68,15 +68,13 @@ function MM_validateForm() { //v4.0
     } if (errors) alert('The following error(s) occurred:\n'+errors);
     document.MM_returnValue = (errors == '');
 } }
-function MM_callJS(jsStr) { //v2.0
-  return eval(jsStr)
-}
+
 function MM_popupMsg(msg) { //v1.0
   alert(msg);
 }
 </script>
 </head> 
-<body> 
+<body>
 <body onload="MM_showHideLayers('mixak4','','hide')">
     <div id="CollapsiblePanel8" class="CollapsiblePanel" style="margin-top:300px;">
   <div class="CollapsiblePanelTabM" tabindex="0">Jak to funguje?</div>
@@ -92,16 +90,12 @@ function MM_popupMsg(msg) { //v1.0
       <li><strong>Objednávka PET lahví minimálně 4 ks</strong>.</li>
       <li><strong>Objednávka</strong><strong> lahvového piva minimálně 1 basa</strong> a počet lahví v kombinaci s basou není nijak omezen</li>
       <li>Možnost<strong> trvalé objednávky</strong>, kdy si definujete složení a interval závozu (např. 1 basa Mix 3, 1x týdně). Informaci o tom, že se jedná o trvalou objednávku a interval závozu, uveďte do poznámky pod Vašimi kontaktními údaji.</li>
-      <li><strong>Obaly jsou zálohovány</strong> a zpět bereme pouze tzv. NRW lahve 0,5l pouze v množství, které jsme Vámi dodali.Vaši objednávku vyplňte do níže uvedeného formuláře a spolu s Vašimi kontaktními údaji odešlete.
+      <li><strong>Obaly jsou zálohovány</strong> a zpět bereme pouze tzv. NRW lahve 0,5l pouze v množství, které jsme Vám dodali. Vaši objednávku vyplňte do níže uvedeného formuláře a spolu s Vašimi kontaktními údaji odešlete.
       </li>
       <li style="color:#FFCC33"><strong>K úspěšnému odeslání objednávky musí být váš telefon připojen k internetu</strong></li>
-      <li><a href="#notifications" onclick="MM_callJS('js/notifikace.js')">zapnout upozorneni</a></li>
-      <li><a href="#notifications" onclick="notificationSet60()">zapnout upozorneni(po 60sec)</a></li>
-           <li><a href="#notifications" onclick="notificationClear()">vypnout vsechna upozorneni</a></li>
-           <li><a href="#notifications" onclick="notificationSetNow()">upozorneni hned</a></li>
-           <li><a href="#notifications" onclick="notificationSet()">zapnout upozorneni kazde ut 17h</a></li>
       </ul>
-  </div></div>
+      
+    </div></div>
 <form id="contact" method="post" action="http://gicz.cz/preview.php" data-ajax="false" data-rel="back">
 <div style="margin-top:25px; margin-left:10px; margin-right:10px;"><input name="submit" type="submit" class="button" id="go_latest" onClick="MM_popupMsg('Vaše poslední objednávka byla načtena.')" value="Načíst poslední objednávku" />
 </div>
@@ -579,6 +573,20 @@ function MM_popupMsg(msg) { //v1.0
 </div>
 </form>
 <div id="CollapsiblePanel9" class="CollapsiblePanelM" style="margin-top:25px; margin-bottom:25px;">
+    <div class="CollapsiblePanelTabM" tabindex="0">Připomínkovací funkce</div>
+    <div class="CollapsiblePanelContentM">    
+      <div style="padding:10px; text-align:center;">
+        <p>
+          Připomínkovací funkce umožňuje pravidelně každé úterý upozornit, že se blíží deadline k objednání piva.<br>
+Připomenutí v
+<input name="cas_notifikace" type="time" class="bilyinput" max="16:00:00" min="08:00:00" value="08:00" > hodin <input type="button" name="button2" id="button" value="Nastavit" onClick="notificationSetCustomInput()" data-theme="b">
+          <br>
+          <input type="button" name="button3" id="button" value="Vypnout upozornění" onClick="notificationClear()" data-theme="a">
+      </p>
+      </div>
+    </div>
+  </div>
+<div id="CollapsiblePanel10" class="CollapsiblePanelM" style="margin-top:25px; margin-bottom:25px;">
     <div class="CollapsiblePanelTabM" tabindex="0">Kontakty</div>
     <div class="CollapsiblePanelContentM">    
       <ul>
@@ -598,6 +606,10 @@ var CollapsiblePanel6 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel6", {c
 var CollapsiblePanel7 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel7", {contentIsOpen:false, enableAnimation:false});
 var CollapsiblePanel8 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel8", {contentIsOpen:false, enableAnimation:false});
 var CollapsiblePanel9 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel9", {contentIsOpen:false, enableAnimation:false});
+var viewport = $("head meta[name=viewport]");
+viewport.attr('content', 'width=640, initial-scale=1, maximum-scale=10.0, minimum-scale=1, user-scalable=1');
+var CollapsiblePanel10 = new 
+Spry.Widget.CollapsiblePanel("CollapsiblePanel10", {contentIsOpen:false, enableAnimation:false});
 var viewport = $("head meta[name=viewport]");
 viewport.attr('content', 'width=640, initial-scale=1, maximum-scale=10.0, minimum-scale=1, user-scalable=1');
 //-->
