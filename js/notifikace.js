@@ -47,16 +47,25 @@ function notificationSetCustomInput()
     var thours = t.split(":")[0];
     var tmins = t.split(":")[1];
 
-    var dateThu = new Date(getNextThursday(thours, tmins).getTime());
-    window.plugin.notification.local.add({
-        id:      1,
-        title:   'Upozorneni',
-        message: 'posledni objednavka do ' + thours + ":" + tmins,
-        repeat:  'weekly',
-        date:    dateThu
-    });
+    if(Number(thours) && Number(tmins))
+    {
+        var dateThu = new Date(getNextThursday(thours, tmins).getTime());
+        window.plugin.notification.local.add({
+            id:      1,
+            title:   'Upozorneni',
+            message: 'posledni objednavka do ' + thours + ":" + tmins,
+            repeat:  'weekly',
+            date:    dateThu
+        });
 
-    alert("Upozornění nastaveno");
+        alert("Upozornění nastaveno");
+    } else
+    {
+        alert("Vložte prosím čas (HH:MM)");
+        return;
+    }
+
+
 }
 
 function getNextThursday(hours, mins) {
@@ -67,7 +76,7 @@ function getNextThursday(hours, mins) {
     var now = new Date('August 30, 2014 3:57:14 pm');
     var day = now.getDay();
 
-    diff = 2 - day;
+    diff = 4 - day;
     if(diff <0)
     {
         diff += 7;
