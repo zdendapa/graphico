@@ -26,13 +26,13 @@ function notificationSet()
     var dateThu = new Date(getNextThursday().getTime());
     window.plugin.notification.local.add({
         id:      1,
-        title:   'Upozorneni',
-        message: 'posledni objednavka do 17.00 ',
+        title:   'Ferda domů!',
+        message: 'posledni objednavka do 17.00',
         repeat:  'weekly',
         date:    dateThu
     });
 
-    alert("notificationSet nastaveno");
+    alert("Nastaveno!");
 
 }
 
@@ -50,11 +50,10 @@ function notificationSetCustomInput()
     if(!isNaN(thours) && !isNaN(tmins))
     {
         var dateThu = new Date(getNextThursday(thours, tmins).getTime());
-        alert(dateThu);
         window.plugin.notification.local.add({
             id:      1,
-            title:   'Upozorneni',
-            message: 'posledni objednavka do ' + thours + ":" + tmins,
+            title:   'Ferda domů',
+            message: 'Poslední objednávka do 17:00',
             repeat:  'weekly',
             date:    dateThu
         });
@@ -77,7 +76,8 @@ function getNextThursday(hours, mins) {
     //var now = new Date('August 30, 2014 3:57:14 pm');
     var day = now.getDay();
 
-    diff = 4 - day;
+    // vypocet dnu (1=pondeli, 2=utery, 3=streda ...)
+    diff = 2 - day;
     if(diff <0)
     {
         diff += 7;
@@ -96,13 +96,18 @@ function getNextThursday(hours, mins) {
 function notificationClear()
 {
     window.plugin.notification.local.cancelAll();
-    alert("Upozornění vypnuty");
+    alert("Upozornění vypnuto");
 }
+
 
 function notificationTriggerSet()
 {
     window.plugin.notification.local.onclick = function (id, state, json) {
-        $("#CollapsiblePanel9 div.CollapsiblePanelContentM").css("display","block");
+
+        if($("#CollapsiblePanel9 div.CollapsiblePanelContentM").css("display")=="none")
+        {
+            $("#CollapsiblePanel9 div.CollapsiblePanelTabM").click();
+        }
         $(window).scrollTop($('#CollapsiblePanel9 div.CollapsiblePanelTabM').offset().top);
     };
 }
