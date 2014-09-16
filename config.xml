@@ -44,8 +44,7 @@ version = "1.0.1">
 <icon src="res/icon/ios/Icon-72@2x.png" gap:platform="ios" width="144" height="144" />
 <icon src="res/icon/ios/appicon-76.png" gap:platform="ios" width="76" height="76" />
 <icon src="res/icon/ios/Icon-76@2x.png" gap:platform="ios" width="152" height="152" />
-<icon src="res/icon/ios/iTunesArtwork" gap:platform="ios" width="512" height="512" />
-<icon src="res/icon/ios/iTunesArtwork@2x" gap:platform="ios" width="1024" height="1024" />
+
 
 
 <gap:splash src="res/screen/ios/Default.png" gap:platform="ios" width="320" height="480" />
