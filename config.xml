@@ -6,6 +6,9 @@ version = "1.0.1">
 <name>Ferda domů</name>
 <description>Objednávka piva Ferdinand až do domu</description>
 <author href="http://www.graphico.cz" email="pejril@graphico.cz">Tomáš Pejřil</author>
+    <gap:config-file platform="ios" parent="CFBundleShortVersionString">
+        <string>114</string>
+    </gap:config-file>
 <item name="android:fitsSystemWindows">true</item>
 <preference name="SplashScreen" value="screen" />
 <preference name="SplashScreenDelay" value="5000" />
