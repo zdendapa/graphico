@@ -33,6 +33,7 @@ function notificationSet()
     });
 
     alert("Nastaveno!");
+    notificationStorage("write");
 
 }
 
@@ -52,13 +53,14 @@ function notificationSetCustomInput()
         var dateThu = new Date(getNextThursday(thours, tmins).getTime());
         window.plugin.notification.local.add({
             id:      1,
-            title:   'Ferda domů',
-            message: 'Poslední objednávka do 17:00',
+            title:   '',
+            message: 'Nezapomeň objednat pivo Ferdinand dnes do 17:00 hod',
             repeat:  'weekly',
             date:    dateThu
         });
 
         alert("Upozornění nastaveno");
+        notificationStorage("write");
     } else
     {
         alert("Vložte prosím čas (HH:MM)");
@@ -96,7 +98,9 @@ function getNextThursday(hours, mins) {
 function notificationClear()
 {
     window.plugin.notification.local.cancelAll();
+    var el = $("input[name='cas_notifikace']").val("");
     alert("Upozornění vypnuto");
+    notificationStorage("write");
 }
 
 
@@ -110,4 +114,28 @@ function notificationTriggerSet()
         }
         $(window).scrollTop($('#CollapsiblePanel9 div.CollapsiblePanelTabM').offset().top);
     };
+}
+
+// type = read/write
+function notificationStorage(type)
+{
+    if(typeof(Storage) == "undefined") return;
+
+    var el = $("input[name='cas_notifikace']");
+
+    if(type=="write")
+    {
+        localStorage.setItem("ferdaNotifikace", el.val());
+        console.log("notification stored");
+    }
+    if(type=="read")
+    {
+        var stored = localStorage.getItem("ferdaNotifikace");
+        if(stored !="")
+        {
+            el.val(stored);
+            console.log("notification got from localStore");
+        }
+    }
+
 }
