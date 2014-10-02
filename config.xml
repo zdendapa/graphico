@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
 xmlns:gap = "http://phonegap.com/ns/1.0"
 id = "com.phonegap.ferdadomu"
-version = "1.0.1">
+version = "1.0.2">
 <name>Ferda domů</name>
 <description>Objednávka piva Ferdinand až do domu</description>
 <author href="http://www.graphico.cz" email="pejril@graphico.cz">Tomáš Pejřil</author>
