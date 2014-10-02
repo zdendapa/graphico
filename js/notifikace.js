@@ -42,7 +42,7 @@ function notificationSetCustomInput()
     var t = $("input[name='cas_notifikace']").val();
     if(t.length==0)
     {
-        alert("Vložte prosím čas (HH:MM)");
+        notificationAlert();
         return;
     }
     var thours = t.split(":")[0];
@@ -50,6 +50,12 @@ function notificationSetCustomInput()
 
     if(!isNaN(thours) && !isNaN(tmins))
     {
+        if(thours>24 || tmins > 60)
+        {
+            notificationAlert()
+            return;
+        }
+
         var dateThu = new Date(getNextThursday(thours, tmins).getTime());
         window.plugin.notification.local.add({
             id:      1,
@@ -63,11 +69,16 @@ function notificationSetCustomInput()
         notificationStorage("write");
     } else
     {
-        alert("Vložte prosím čas (HH:MM)");
+        notificationAlert()
         return;
     }
 
 
+}
+
+function notificationAlert()
+{
+    alert("Vložte prosím čas (HH:MM)");
 }
 
 function getNextThursday(hours, mins) {
