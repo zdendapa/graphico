@@ -3,7 +3,8 @@
 xmlns:gap = "http://phonegap.com/ns/1.0"
 id = "com.phonegap.ferdadomu"
 version = "1.0.2"
-versionCode = "140">
+versionCode = "140"
+value = "140">
 <name>Ferda domů</name>
 <description>Objednávka piva Ferdinand až do domu</description>
 <author href="http://www.graphico.cz" email="pejril@graphico.cz">Tomáš Pejřil</author>
@@ -19,7 +20,8 @@ versionCode = "140">
 <gap:splash gap:density="ldpi" gap:platform="android" src="res/screen-ldpi-landscape.png" />
 <gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.7.4" />
 <gap:plugin name="org.apache.cordova.device" version="0.2.8" />
-<gap:config-file platform="ios" parent="CFBundleVersion"><string>140</string></gap:config-file>
+
+
 <gap:config-file platform="ios" parent="UIStatusBarHidden"><true/></gap:config-file>
 <gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance"><false/></gap:config-file>
 <plugin name="InAppBrowser" value="CDVInAppBrowser" />
